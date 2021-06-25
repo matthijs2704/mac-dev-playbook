@@ -89,6 +89,7 @@ homebrew_cask_apps:
   - timing # Version 2018.3.2
   - vagrant
   - visual-studio-code
+  - vlc
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:
