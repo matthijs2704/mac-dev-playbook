@@ -86,6 +86,7 @@ homebrew_cask_apps:
   - parallels
   - paw
   - rectangle #todo config
+  - sequel-ace
   - sourcetree
   - spotify
   - timing # Version 2018.3.2
