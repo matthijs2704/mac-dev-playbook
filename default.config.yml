@@ -91,7 +91,19 @@ homebrew_cask_apps:
   - visual-studio-code
 
 # See `geerlingguy.mas` role documentation for usage instructions.
-mas_installed_apps: []
+mas_installed_apps:
+  - 424389933  # Final Cut Pro
+  - 497799835  # Xcode
+  - 1399498094 # WebSocket Client
+  - 634159523  # MainStage
+  - 634148309  # Logic Pro
+  - 1037126344 # Apple Configurator 2
+  - 425424353  # The Unarchiver
+  - 434290957  # Motion
+  - 1295203466 # Microsoft Remote Desktop
+  - 1497506650 # Yubico Authenticator
+  - 640199958  # Developer
+  - 424390742  # Compressor
 mas_email: ""
 mas_password: ""
 
