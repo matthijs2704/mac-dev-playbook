@@ -31,11 +31,11 @@ dotfiles_repo: https://github.com/geerlingguy/dotfiles.git
 dotfiles_repo_accept_hostkey: true
 dotfiles_repo_local_destination: ~/Development/GitHub/dotfiles
 dotfiles_files:
-  - .zshrc
   - .gitignore
   - .inputrc
   - .osx
   - .vimrc
+  - .zshrc
 
 homebrew_installed_packages:
   # - ansible # Installed via Pip.
@@ -51,16 +51,16 @@ homebrew_installed_packages:
   - httpie
   - iperf
   - libevent
-  - sqlite
   - mcrypt
   - nmap
   - node
   - nvm
-  - php
-  - ssh-copy-id
-  - readline
   - openssl
+  - php
   - pv
+  - readline
+  - sqlite
+  - ssh-copy-id
   - wget
   - wrk
   - zsh-history-substring-search
@@ -75,6 +75,8 @@ homebrew_cask_apps:
   - discord
   - docker
   - firefox
+  - gpg-suite-no-mail
+  - gpg-suite-pinentry
   - handbrake 
   - home-assistant
   - iterm2
