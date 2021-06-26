@@ -57,6 +57,7 @@ homebrew_installed_packages:
   - nvm
   - openssl
   - php
+  - pinentry-mac
   - pv
   - readline
   - sqlite
@@ -76,7 +77,6 @@ homebrew_cask_apps:
   - docker
   - firefox
   - gpg-suite-no-mail
-  - gpg-suite-pinentry
   - handbrake 
   - home-assistant
   - iterm2
