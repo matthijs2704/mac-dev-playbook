@@ -1,0 +1,172 @@
+{
+    "explorer.confirmDelete": false,
+    "files.autoSave": "onFocusChange",
+    "python.globalModuleInstallation": true,
+    "explorer.confirmDragAndDrop": false,
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    },
+    "vetur.validation.template": false,
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.detectIndentation": false,
+    "editor.tabCompletion": "on",
+    "javascript.format.enable": false,
+    "eslint.alwaysShowStatus": true,
+    "prettier.semi": false,
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
+    "eslint.options": {
+        "extensions": [
+            ".html",
+            ".js",
+            ".vue",
+            ".jsx"
+        ]
+    },
+    "eslint.validate": [
+        "html",
+        "javascript",
+        "javascriptreact",
+        "vue"
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": false
+    },
+    "prettier.printWidth": 120,
+    "prettier.singleQuote": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "terminal.integrated.fontFamily": "Menlo for Powerline",
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "[latex]": {
+    
+
+        "editor.formatOnPaste": false,
+        "editor.suggestSelection": "recentlyUsedByPrefix",
+        "editor.defaultFormatter": "James-Yu.latex-workshop",
+    },
+    "latex-workshop.latex.recipes": [
+    
+        {
+            "name": "latexmk 🔃",
+            "tools": [
+                "latexmk"
+            ]
+        },
+        {
+            "name": "latexmk (latexmkrc)",
+            "tools": [
+                "latexmk_rconly"
+            ]
+        },
+        {
+            "name": "latexmk (lualatex)",
+            "tools": [
+                "lualatexmk"
+            ]
+        },
+        {
+            "name": "pdflatex ➞ bibtex ➞ pdflatex × 2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "Compile Rnw files",
+            "tools": [
+                "rnw2tex",
+                "latexmk"
+            ]
+        },
+        {
+            "name": "Compile Jnw files",
+            "tools": [
+                "jnw2tex",
+                "latexmk"
+            ]
+        }
+    ],
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "liveshare.nameTagVisibility": "Never",
+    "git.enableSmartCommit": true,
+    "editor.minimap.enabled": true,
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
+        }
+    ],
+    "latex-workshop.latexindent.path": "/usr/local/bin/latexindent",
+    "editor.wordWrap": "on",
+    "git.autofetch": true,
+    "liveshare.presence": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "cSpell.userWords": [
+        "Colorability",
+        "Logemann",
+        "multiset",
+        "pseudocode",
+        "skillset"
+    ],
+    "[haskell]": {
+        "editor.defaultFormatter": "MaxGabriel.brittany"
+    },
+    "brittany.path": "/Users/matthijs/.local/bin/brittany",
+    "brittany.additionalFlags": "--indent 4",
+    "editor.formatOnSave": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.languageServer": "Pylance",
+    "cornflakes.linter.executablePath": "docker-compose -f visualizer/docker-compose.test.yml run --rm main flake8",
+    "python.analysis.extraPaths": [
+        "visualizer"
+    ],
+    "diffEditor.ignoreTrimWhitespace": false,
+    "git.confirmSync": false,
+    "yaml.customTags": [
+        "!encrypted/pkcs1-oaep scalar",
+        "!vault scalar"
+    ],
+    "python.pythonPath": "/usr/local/opt/python@3.9/bin/python3.9",
+    "python.defaultInterpreterPath": "/usr/local/opt/python@3.9/bin/python3.9",
+    "workbench.iconTheme": "eq-material-theme-icons-palenight",
+    "workbench.colorTheme": "Material Theme Palenight"
+}
