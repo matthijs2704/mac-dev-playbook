@@ -1,16 +1,12 @@
 ---
-- name: checks if extension is installed
-  stat:
-    path: "{{ ansible_env.HOME }}/.vscode/extensions/{{ item }}"
-  register: vscode_extension
-
-- name: Ensure that VSCode extensions are installed.
-  command: "'/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code' --install-extension {{ item }}"
-  when: not vscode_extension.stat.exists
-  loop: "{{ vscode_installed_extensions }}"
+- name: Ensure Visual Studio Code extensions are installed.
+  command: code --install-extension {{ item | quote }}
+  with_items: "{{ vscode_installed_extensions }}"
+  register: vscode_install_extension_result
+  changed_when: "'is already installed' not in vscode_install_extension_result.stdout"
 
 - name: Ensure Visual Studio Code user settings and theme are set. 
   copy:
-    src: "files/vscode/settings.json"
+    src: "{{ vscode_settings }}"
     dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"
   when: vscode_settings is defined

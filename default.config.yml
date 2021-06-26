@@ -135,6 +135,7 @@ pip_packages: []
 
 # Set to 'true' to configure VSCode.
 configure_vscode: true
+vscode_settings: "files/vscode/settings.json"
 vscode_installed_extensions:
   - amiralizadeh9480.laravel-extra-intellisense
   - apility.beautify-blade
