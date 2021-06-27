@@ -34,6 +34,10 @@
       when: configure_terminal
       tags: ['terminal']
 
+    - import_tasks: tasks/iterm.yml
+      when: configure_iterm
+      tags: ['iterm']
+
     - import_tasks: tasks/osx.yml
       when: configure_osx
       tags: ['osx']
