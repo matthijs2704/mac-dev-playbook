@@ -6,6 +6,9 @@ configure_terminal: true
 configure_iterm: true
 configure_osx: true
 
+dotfiles_repo: "https://github.com/matthijs2704/dotfiles.git"
+dotfiles_repo_version: main
+
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: true
 dockitems_remove:
@@ -96,6 +99,7 @@ homebrew_installed_packages:
   - openssl
   - php
   - pinentry-mac
+  - pure
   - pv
   - readline
   - sqlite
