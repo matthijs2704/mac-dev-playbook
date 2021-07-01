@@ -99,7 +99,6 @@ homebrew_installed_packages:
   - openssl
   - php
   - pinentry-mac
-  - pure
   - pv
   - readline
   - sqlite
