@@ -6,9 +6,6 @@ configure_terminal: true
 configure_iterm: true
 configure_osx: true
 
-dotfiles_repo: "https://github.com/matthijs2704/dotfiles.git"
-dotfiles_repo_version: main
-
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: true
 dockitems_remove:
@@ -68,10 +65,12 @@ iterm2_fonts:
 iterm2_preferences_custom_folder: ~/Development/GitHub/iterm2-config
 iterm2_shell_integration: yes
 
-dotfiles_repo: https://github.com/geerlingguy/dotfiles.git
+dotfiles_repo: https://github.com/matthijs2704/dotfiles.git
+dotfiles_repo_version: main
 dotfiles_repo_accept_hostkey: true
 dotfiles_repo_local_destination: ~/Development/GitHub/dotfiles
 dotfiles_files:
+  - .gitconfig
   - .gitignore
   - .inputrc
   - .osx
