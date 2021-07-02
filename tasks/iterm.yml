@@ -1,25 +1,10 @@
 ---
-- name: Ensure iTerm directories are initialized if they are not already.
-  command: "open -a /Applications/iTerm.app"
-  args:
-    creates: "~/Library/Application Support/iTerm2/DynamicProfiles/"
-
 - name: Ensure fonts are installed.
   get_url:
     url: "{{ item.url }}"
     dest: "~/Library/Fonts"
   with_items: "{{ iterm2_fonts }}"
   when: iterm2_fonts is defined
-
-- name: Ensure DynamicProfiles are installed.
-  uri:
-    url: "{{ item.url }}"
-    dest:  "~/Library/Application Support/iTerm2/DynamicProfiles/"
-    user: "{{ item.user }}"
-    password: "{{ item.password }}"
-    force_basic_auth: yes
-  with_items: "{{ iterm2_dynamic_profiles }}"
-  when: iterm2_dynamic_profiles is defined
 
 - name: Ensure iTerm2 preferences are cloned.
   git:
@@ -32,6 +17,14 @@
     key: 'PrefsCustomFolder'
     type: string 
     value: '{{ iterm2_preferences_custom_folder }}'
+  when: iterm2_preferences_custom_folder is defined and iterm2_preferences_custom_folder
+
+- name: Ensure preferences from a custom folder are used.
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: 'LoadPrefsFromCustomFolder'
+    type: bool 
+    value: true
   when: iterm2_preferences_custom_folder is defined and iterm2_preferences_custom_folder
 
 # If loading preferences from a folder, user probably shouldn't set this.
