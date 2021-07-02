@@ -21,6 +21,11 @@
   with_items: "{{ iterm2_dynamic_profiles }}"
   when: iterm2_dynamic_profiles is defined
 
+- name: Ensure iTerm2 preferences are cloned.
+  git:
+    repo=https://github.com/matthijs2704/iterm2-config
+    dest=~/Development/GitHub/iterm2-config
+
 - name: Ensure preferences are loaded from a custom folder.
   command: "defaults write com.googlecode.iterm2 'PrefsCustomFolder' -string '{{ iterm2_preferences_custom_folder }}'"
   when: iterm2_preferences_custom_folder is defined and iterm2_preferences_custom_folder
