@@ -27,6 +27,13 @@
     value: true
   when: iterm2_preferences_custom_folder is defined and iterm2_preferences_custom_folder
 
+- name: Ensure iTerm auto updating is set.
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: 'SUEnableAutomaticChecks'
+    type: bool 
+    value: true
+
 # If loading preferences from a folder, user probably shouldn't set this.
 - name: Ensure configured profile is set to default.
   command: "defaults write com.googlecode.iterm2 'Default Bookmark Guid' -string '{{ iterm2_default_profile_guid }}'"
