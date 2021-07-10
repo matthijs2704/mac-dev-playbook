@@ -109,6 +109,7 @@ homebrew_installed_packages:
 homebrew_taps:
   - homebrew/core
   - homebrew/cask
+  - homebrew/cask-fonts
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
@@ -136,6 +137,8 @@ homebrew_cask_apps:
   - visual-studio-code
   - vlc
   - whatsapp
+  #FONTS:
+  - font-menlo-for-powerline
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:
