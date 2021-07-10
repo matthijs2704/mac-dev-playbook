@@ -132,7 +132,7 @@ homebrew_cask_apps:
   - sequel-ace
   - sourcetree
   - spotify
-  - timing # Version 2018.3.2
+  # - timing # Version 2018.3.2
   - vagrant
   - visual-studio-code
   - vlc
