@@ -99,6 +99,7 @@ homebrew_installed_packages:
   - nvm
   - openssl
   - php
+  - pinentry
   - pinentry-mac
   - pv
   - readline
