@@ -3,5 +3,13 @@
   command: 'gpg --recv-keys "{{ gpg_key_fingerprint }}"'
   when: gpg_key_fingerprint is defined
   
-- name: Ensure correct Pinentry-Mac is selected (platform-dependent)
+- name: Copy GPG agent config from dotfiles.
+  copy:
+    src: "{{ dotfiles_repo_local_destination }}/.gnupg/gpg-agent.conf"
+    dest: "{{ ansible_env.HOME }}/.gnupg/gpg-agent.conf"
+    force: no
+
+- name: Ensure correct Pinentry-Mac path is updated.
   command: 'sed -i '' "s|pinentry-program.*|pinentry-program $(brew --prefix)/bin/pinentry-mac|g" ~/.gnupg/gpg-agent.conf'
+
+  
