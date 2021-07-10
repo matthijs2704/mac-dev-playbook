@@ -2,3 +2,6 @@
 - name: Ensure GPG key is installed
   command: 'gpg --recv-keys "{{ gpg_key_fingerprint }}"'
   when: gpg_key_fingerprint is defined
+  
+- name: Ensure correct Pinentry-Mac is selected (platform-dependent)
+  command: 'sed -i '' "s|pinentry-program.*|pinentry-program $(brew --prefix)/bin/pinentry-mac|g" ~/.gnupg/gpg-agent.conf'
