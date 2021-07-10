@@ -104,7 +104,6 @@ homebrew_installed_packages:
   - sqlite
   - ssh-copy-id
   - wget
-  - wrk
   - zsh-history-substring-search
 
 homebrew_taps:
