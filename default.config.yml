@@ -156,6 +156,8 @@ mas_password: ""
 
 osx_script: "~/.osx --no-restart"
 
+gpg_key_fingerprint: "87A9F8DA27DAC832E026BE3A23A2079CCBB41E07"
+
 # Install packages from other package managers.
 # Note: You are responsible for making sure the required package managers are
 # installed, eg. through homebrew.
@@ -219,4 +221,6 @@ vscode_installed_extensions:
   - zbr.vscode-ansible
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
-post_provision_tasks: []
+post_provision_tasks: [
+"tasks/gpg.yml"
+]
