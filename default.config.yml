@@ -84,6 +84,7 @@ homebrew_installed_packages:
   # - ansible # Installed via Pip.
   - autoconf
   - bash-completion
+  - composer
   - doxygen
   - gettext
   - gifsicle
