@@ -10,6 +10,4 @@
     force: no
 
 - name: Ensure correct Pinentry-Mac path is updated.
-  command: 'sed -i '' "s|pinentry-program.*|pinentry-program $(brew --prefix)/bin/pinentry-mac|g" ~/.gnupg/gpg-agent.conf'
-
-  
+  command: "sed -i '' \"s|pinentry-program.*|pinentry-program $(brew --prefix)/bin/pinentry-mac|g\" ~/.gnupg/gpg-agent.conf"
