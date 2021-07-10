@@ -120,6 +120,7 @@ homebrew_cask_apps:
   - 1password
   - affinity-designer
   - affinity-photo
+  - db-browser-for-sqlite
   - discord
   - docker
   - firefox
