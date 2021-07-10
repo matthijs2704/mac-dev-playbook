@@ -1,7 +1,12 @@
 ---
+- name: Check if GPG key is already installed.
+  shell: "gpg --list-key | grep {{ gpg_key_fingerprint }} | cat"
+  changed_when: false
+  register: gpg_already_installed
+
 - name: Ensure GPG key is installed
   command: 'gpg --recv-keys "{{ gpg_key_fingerprint }}"'
-  when: gpg_key_fingerprint is defined
+  when: gpg_key_fingerprint is defined and gpg_already_installed.stdout == ''
   
 - name: Copy GPG agent config from dotfiles.
   copy:
@@ -9,5 +14,14 @@
     dest: "{{ ansible_env.HOME }}/.gnupg/gpg-agent.conf"
     force: no
 
-- name: Ensure correct Pinentry-Mac path is updated.
-  command: "sed -i '' 's|pinentry-program.*|pinentry-program $(brew --prefix)/bin/pinentry-mac|g' ~/.gnupg/gpg-agent.conf"
+- name: Get the homebrew prefix for the current system.
+  shell: brew --prefix
+  changed_when: false
+  register: brew_prefix_output
+
+- name: Ensure pinentry-program is correct.
+  lineinfile:
+    path: "~/.gnupg/gpg-agent.conf"
+    regexp: "pinentry-program.*"
+    line: "pinentry-program {{ brew_prefix_output.stdout }}/bin/pinentry-mac"
+  register: check_pinentry_program

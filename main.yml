@@ -49,6 +49,10 @@
       when: configure_vscode
       tags: ['vscode']
 
+    - import_tasks: tasks/gpg.yml
+      when: configure_gpg
+      tags: ['gpg']
+
     - name: Run configured post-provision ansible task files.
       include_tasks: "{{ outer_item }}"
       loop_control:

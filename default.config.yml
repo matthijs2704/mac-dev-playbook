@@ -5,6 +5,7 @@ configure_dotfiles: true
 configure_terminal: true
 configure_iterm: true
 configure_osx: true
+configure_gpg: true
 
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: true
@@ -226,6 +227,4 @@ vscode_installed_extensions:
   - zbr.vscode-ansible
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
-post_provision_tasks: [
-"tasks/gpg.yml"
-]
+post_provision_tasks: []
