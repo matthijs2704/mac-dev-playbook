@@ -1,4 +1,4 @@
 ---
 - name: Ensure GPG key is installed
-  command: 'gpg --recv-keys {{ gpg_key_fingerprint }}"'
+  command: 'gpg --recv-keys "{{ gpg_key_fingerprint }}"'
   when: gpg_key_fingerprint is defined
