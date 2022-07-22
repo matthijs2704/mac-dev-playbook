@@ -80,46 +80,58 @@ dotfiles_files:
   - .vimrc
   - .zshrc
 
+homebrew_taps:
+  - homebrew/core
+  - homebrew/cask
+  - homebrew/cask-fonts
+  - github/gh
+
 homebrew_installed_packages:
   # - ansible # Installed via Pip.
   - autoconf
   - bash-completion
   - composer
+  - caddy
   - doxygen
+  - dockutil
+  - ffmpeg
   - gettext
-  - gifsicle
   - git
-  - github/gh/gh
+  - gh
   - go
   - gpg
   - httpie
   - iperf
+  - jenv
   - libevent
   - mcrypt
+  - nghttp2
   - nmap
   - node
   - nvm
   - openssl
+  - openjdk
   - php
+  - php@7.4
+  - python
+  - poetry
   - pinentry
   - pinentry-mac
   - pv
   - readline
   - sqlite
   - ssh-copy-id
+  - telnet
   - wget
+  - yarn
   - zsh-history-substring-search
-
-homebrew_taps:
-  - homebrew/core
-  - homebrew/cask
-  - homebrew/cask-fonts
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - 1password
   - affinity-designer
   - affinity-photo
+  - altair-graphql-client
   - db-browser-for-sqlite
   - discord
   - docker
@@ -131,6 +143,7 @@ homebrew_cask_apps:
   - microsoft-edge
   - microsoft-office
   - microsoft-teams
+  - notion
   - parallels
   - paw
   - rectangle #todo config
@@ -141,9 +154,16 @@ homebrew_cask_apps:
   - vagrant
   - visual-studio-code
   - vlc
+  - vnc-viewer
   - whatsapp
   #FONTS:
   - font-menlo-for-powerline
+  - font-bebas-neue
+  - font-menlo-for-powerline
+  - font-noto-sans
+  - font-open-sans
+  - font-raleway
+  - font-roboto
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:
@@ -191,42 +211,72 @@ configure_vscode: true
 vscode_settings: "files/vscode/settings.json"
 vscode_installed_extensions:
   - amiralizadeh9480.laravel-extra-intellisense
+  - antfu.browse-lite
+  - antfu.iconify
+  - antfu.unocss
+  - antfu.vite
   - apility.beautify-blade
+  - bmewburn.vscode-intelephense-client
+  - bradlc.vscode-tailwindcss
   - christian-kohler.path-intellisense
+  - codezombiech.gitignore
   - codingyu.laravel-goto-view
-  - CoenraadS.bracket-pair-colorizer-2
+  - cschlosser.doxdocgen
+  - csstools.postcss
   - dbaeumer.vscode-eslint
+  - EditorConfig.EditorConfig
+  - Equinusocio.vsc-community-material-theme
   - Equinusocio.vsc-material-theme
   - equinusocio.vsc-material-theme-icons
   - esbenp.prettier-vscode
+  - glitchbl.laravel-create-view
+  - GraphQL.vscode-graphql
+  - heybourn.headwind
   - idleberg.applescript
+  - IHunte.laravel-blade-wrapper
+  - jebbs.plantuml
   - James-Yu.latex-workshop
   - kevinglasson.cornflakes-linter
+  - KnisterPeter.vscode-commitizen
+  - lokalise.i18n-ally
   - mikestead.dotenv
   - ms-azuretools.vscode-docker
+  - ms-dotnettools.vscode-dotnet-runtime
   - ms-python.python
   - ms-python.vscode-pylance
   - ms-vscode-remote.remote-containers
+  - ms-vscode-remote.remote-ssh
+  - ms-vscode-remote.remote-ssh-edit
+  - ms-vscode-remote.remote-wsl
   - ms-vscode.cpptools
   - ms-vsliveshare.vsliveshare
   - ms-vsliveshare.vsliveshare-audio
   - ms-vsliveshare.vsliveshare-pack
+  - naoray.laravel-goto-components
+  - Natizyskunk.sftp
   - octref.vetur
   - onecentlin.laravel-blade
   - onecentlin.laravel-extension-pack
   - onecentlin.laravel5-snippets
+  - peakchen90.vue-beautify
   - platformio.platformio-ide
+  - redhat.ansible
   - redhat.vscode-commons
   - redhat.vscode-yaml
   - rvest.vs-code-prettier-eslint
   - ryannaddy.laravel-artisan
+  - samuelcolvin.jinjahtml
   - sdras.vue-vscode-snippets
+  - shufo.vscode-blade-formatter
+  - sibiraj-s.vscode-scss-formatter
   - stef-k.laravel-goto-controller
   - stevemoser.xcode-keybindings
   - streetsidesoftware.code-spell-checker
+  - Vue.volar
+  - wholroyd.jinja
   - Vtrois.gitmoji-vscode
   - yzhang.markdown-all-in-one
-  - zbr.vscode-ansible
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []
+
