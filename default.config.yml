@@ -93,7 +93,6 @@ homebrew_installed_packages:
   - composer
   - caddy
   - doxygen
-  - hpedrorodrigues/tools/dockutil
   - ffmpeg
   - gettext
   - git
@@ -157,6 +156,7 @@ homebrew_cask_apps:
   - vlc
   - vnc-viewer
   - whatsapp
+  - hpedrorodrigues/tools/dockutil
   #FONTS:
   - font-menlo-for-powerline
   - font-bebas-neue
