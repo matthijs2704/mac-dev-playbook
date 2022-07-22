@@ -275,7 +275,7 @@ vscode_installed_extensions:
   - streetsidesoftware.code-spell-checker
   - Vue.volar
   - wholroyd.jinja
-  - Vtrois.gitmoji-vscode
+  - seatonjiang.gitmoji-vscode
   - yzhang.markdown-all-in-one
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
