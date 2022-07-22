@@ -121,6 +121,7 @@ homebrew_installed_packages:
   - readline
   - sqlite
   - ssh-copy-id
+  - svn
   - telnet
   - wget
   - yarn
