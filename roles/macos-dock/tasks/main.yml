@@ -24,9 +24,9 @@
 - name: "Restart Dock"
   meta: flush_handlers
 
-- name: Pause for 5 seconds to ensure Dock is updated.
+- name: Pause for 7 seconds to ensure Dock is updated.
   ansible.builtin.pause:
-    seconds: 5
+    seconds: 7
 
 # - name: Ensure dock items are in correct position.
 #   ansible.builtin.include_tasks: dock-position.yml
