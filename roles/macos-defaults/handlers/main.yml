@@ -1,0 +1,33 @@
+---
+- name: Restart MenuBar
+  command: killall SystemUIServer
+  ignore_errors: true
+
+- name: Restart Mail
+  command: killall Mail
+  ignore_errors: true
+
+- name: Restart Dock
+  command: killall Dock
+  ignore_errors: true
+
+- name: Restart Finder
+  command: killall Finder
+  ignore_errors: true
+
+- name: Restart ControlCenter
+  command: killall ControlCenter
+  ignore_errors: true
+
+- name: Restart Safari
+  command: killall Safari
+  ignore_errors: true
+
+- name: Restart Spotlight
+  command: killall mds
+  ignore_errors: true
+
+
+# - name: Restart NotificationCenter
+#   command: killall NotificationCenter
+#   ignore_errors: true

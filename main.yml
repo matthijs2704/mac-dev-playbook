@@ -18,6 +18,9 @@
     - role: geerlingguy.dotfiles
       when: configure_dotfiles
       tags: ['dotfiles']
+    - role: macos-defaults
+      when: configure_macos
+      tags: ['macos']
     - role: geerlingguy.mac.mas
       when: mas_installed_apps or mas_installed_app_ids
       tags: ['mas']

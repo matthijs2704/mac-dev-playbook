@@ -1,0 +1,14 @@
+---
+
+- name: Ensure Trackpad haptic feedback is set to light and silent clicking.
+  community.general.osx_defaults: { domain: 'com.apple.AppleMultitouchTrackpad', key: "{{ item.key }}", type: "{{ item.type }}", value: "{{ item.value }}" }
+  loop:
+    - {key: "FirstClickThreshold", type: int, value: 0 }
+    - {key: "ActuationStrength", type: int, value: 0 }
+
+- name: Ensure Trackpad tap to click is enabled.
+  community.general.osx_defaults: 
+    domain: 'com.apple.AppleMultitouchTrackpad'
+    key: 'Clicking'
+    type: int
+    value: 1

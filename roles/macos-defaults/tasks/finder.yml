@@ -1,0 +1,106 @@
+---
+
+- name: Ensure hard drives, servers and removable media are visible on desktop.
+  community.general.osx_defaults: { domain: 'com.apple.finder', key: "{{ item.key }}", type: "{{ item.type }}", value: "{{ item.value }}" }
+  loop:
+    - {key: "ShowExternalHardDrivesOnDesktop", type: bool, value: false }
+    - {key: "ShowHardDrivesOnDesktop", type: bool, value: true }
+    - {key: "ShowMountedServersOnDesktop", type: bool, value: true }
+    - {key: "ShowRemovableMediaOnDesktop", type: bool, value: true }
+  notify: Restart Finder
+
+- name: Ensure Finder shows all file extensions.
+  community.general.osx_defaults: 
+    domain: 'NSGlobalDomain'
+    key: AppleShowAllExtensions
+    type: bool
+    value: true
+  notify: Restart Finder
+
+- name: Ensure Finder shows status bar.
+  community.general.osx_defaults: 
+    domain: 'com.apple.finder'
+    key: ShowStatusBar
+    type: bool
+    value: true
+  notify: Restart Finder
+
+- name: Ensure Finder allows text selection in Quick Look.
+  community.general.osx_defaults: 
+    domain: 'com.apple.finder'
+    key: QLEnableTextSelection
+    type: bool
+    value: true
+  notify: Restart Finder
+
+- name: Ensure Finder displays full POSIX path as Finder window title.
+  community.general.osx_defaults: 
+    domain: 'com.apple.finder'
+    key: _FXShowPosixPathInTitle
+    type: bool
+    value: true
+  notify: Restart Finder
+
+- name: Ensure Finder displays full POSIX path as Finder window title.
+  community.general.osx_defaults: 
+    domain: 'com.apple.finder'
+    key: FXDefaultSearchScope
+    type: string
+    value: SCcf
+  notify: Restart Finder
+
+- name: Ensure Finder has warning about changing file extension disabled.
+  community.general.osx_defaults: 
+    domain: 'com.apple.finder'
+    key: FXEnableExtensionChangeWarning
+    type: bool
+    value: false
+  notify: Restart Finder
+
+- name: Ensure Finder has spring loading for directories enabled.
+  community.general.osx_defaults: 
+    domain: 'NSGlobalDomain'
+    key: com.apple.springing.enabled
+    type: bool
+    value: true
+  notify: Restart Finder
+
+- name: Ensure Finder has the spring loading delay for directories removed.
+  community.general.osx_defaults: 
+    domain: 'NSGlobalDomain'
+    key: com.apple.springing.delay
+    type: float
+    value: 0.1
+  notify: Restart Finder
+
+- name: Ensure avoid creating .DS_Store files on network volumes.
+  community.general.osx_defaults: 
+    domain: 'com.apple.desktopservices'
+    key: DSDontWriteNetworkStores
+    type: bool
+    value: true
+
+- name: Ensure enable snap-to-grid for icons on the desktop and in other icon views.
+  command: "{{ item }}"
+  with_items:
+  - '/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist'
+  - '/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist'
+  - '/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist'
+
+- name: Ensure the size of icons on the desktop and in other icon views is set.
+  command: "{{ item }}"
+  with_items:
+  - '/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 64" ~/Library/Preferences/com.apple.finder.plist'
+  - '/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 64" ~/Library/Preferences/com.apple.finder.plist'
+  - '/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 64" ~/Library/Preferences/com.apple.finder.plist'
+
+- name: Ensure use column view in all Finder windows by default.
+  community.general.osx_defaults: 
+    domain: 'com.apple.finder'
+    key: FXPreferredViewStyle
+    type: string
+    value: clmv
+
+- name: Ensure the ~/Library folder is shown.
+  command: 'chflags nohidden ~/Library'
+  changed_when: false

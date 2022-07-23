@@ -4,7 +4,7 @@ downloads: ~/.ansible-downloads/
 configure_dotfiles: true
 configure_terminal: true
 configure_iterm: true
-configure_osx: true
+configure_macos: true
 configure_gpg: true
 
 # Set to 'true' to configure the Dock via dockutil.
@@ -21,16 +21,22 @@ dockitems_remove:
 - Reminders
 dockitems_persist:
 - name: "Launchpad"
+  path: "/System/Applications/Launchpad.app"
   pos: 1
 - name: "Safari"
+  path: "/System/Applications/Safari.app"
   pos: 2
 - name: "Mail"
+  path: "/System/Applications/Mail.app"
   pos: 3
 - name: "Contacts"
+  path: "/System/Applications/Contacts.app"
   pos: 4
 - name: "Calendar"
+  path: "/System/Applications/Calendar.app"
   pos: 5
 - name: "Notes"
+  path: "/System/Applications/Notes.app"
   pos: 6
 - name: "iTerm"
   path: "/Applications/iTerm.app"
@@ -50,9 +56,6 @@ dockitems_persist:
 - name: "Paw"
   path: "/Applications/Paw.app"
   pos: 16
-# - name: "Sublime Text"
-#   path: "/Applications/Sublime Text.app/"
-#   pos: 5
 
 configure_sudoers: false
 sudoers_custom_config: ''
@@ -76,7 +79,6 @@ dotfiles_files:
   - .gitconfig
   - .gitignore
   - .inputrc
-  - .osx
   - .vimrc
   - .zshrc
 
@@ -182,8 +184,6 @@ mas_installed_apps:
   - 424390742  # Compressor
 mas_email: ""
 mas_password: ""
-
-osx_script: "~/.osx --no-restart"
 
 gpg_key_fingerprint: "87A9F8DA27DAC832E026BE3A23A2079CCBB41E07"
 

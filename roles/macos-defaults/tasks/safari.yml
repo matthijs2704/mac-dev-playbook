@@ -1,0 +1,97 @@
+---
+
+- name: Ensure Safari is in developer mode.
+  community.general.osx_defaults: { domain: 'com.apple.Safari', key: "{{ item.key }}", type: "{{ item.type }}", value: "{{ item.value }}" }
+  loop:
+    - {key: "IncludeDevelopMenu", type: bool, value: true }
+    - {key: "WebKitDeveloperExtrasEnabledPreferenceKey", type: bool, value: true }
+    - {key: "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled", type: bool, value: true }
+  notify: Restart Safari
+
+- name: Ensure Safari shows Web Inspector in context menu.
+  community.general.osx_defaults: 
+    domain: 'NSGlobalDomain'
+    key: WebKitDeveloperExtras
+    type: bool
+    value: true
+  notify: Restart Safari
+
+- name: Ensure Safari does not open 'safe' files automatically after download.
+  community.general.osx_defaults: 
+    domain: 'com.apple.Safari'
+    key: AutoOpenSafeDownloads
+    type: bool
+    value: false
+  notify: Restart Safari
+
+- name: Ensure Safari hides bookmark bar by default.
+  community.general.osx_defaults: 
+    domain: 'com.apple.Safari'
+    key: ShowFavoritesBar
+    type: bool
+    value: false
+  notify: Restart Safari
+
+- name: Ensure Safari hides sidebar in Top Sites.
+  community.general.osx_defaults: 
+    domain: 'com.apple.Safari'
+    key: ShowSidebarInTopSites
+    type: bool
+    value: false
+  notify: Restart Safari
+
+- name: Ensure Safari has thumbnail cache disabled for History and Top Sites.
+  community.general.osx_defaults: 
+    domain: 'com.apple.Safari'
+    key: DebugSnapshotsUpdatePolicy
+    type: int
+    value: 2
+  notify: Restart Safari
+
+- name: Ensure Safari has enabled debug menu.
+  community.general.osx_defaults: 
+    domain: 'com.apple.Safari'
+    key: IncludeInternalDebugMenu
+    type: bool
+    value: true
+  notify: Restart Safari
+
+- name: Ensure Safari uses 'contains' by default for search.
+  community.general.osx_defaults: 
+    domain: 'com.apple.Safari'
+    key: FindOnPageMatchesWordStartsOnly
+    type: bool
+    value: false
+  notify: Restart Safari
+
+- name: Ensure Safari has enabled continuous spell-check.
+  community.general.osx_defaults: 
+    domain: 'com.apple.Safari'
+    key: WebContinuousSpellCheckingEnabled
+    type: bool
+    value: true
+  notify: Restart Safari
+
+- name: Ensure Safari has disabled auto-correct.
+  community.general.osx_defaults: 
+    domain: 'com.apple.Safari'
+    key: WebAutomaticSpellingCorrectionEnabled
+    type: bool
+    value: false
+  notify: Restart Safari
+
+- name: Ensure Safari has enabled fraud site warning.
+  community.general.osx_defaults: 
+    domain: 'com.apple.Safari'
+    key: WarnAboutFraudulentWebsites
+    type: bool
+    value: true
+  notify: Restart Safari
+
+- name: Ensure Safari has do-not-track enabled.
+  community.general.osx_defaults: 
+    domain: 'com.apple.Safari'
+    key: SendDoNotTrackHTTPHeader
+    type: bool
+    value: true
+  notify: Restart Safari

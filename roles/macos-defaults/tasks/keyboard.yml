@@ -1,0 +1,21 @@
+---
+
+- name: Ensure keyboard uses key repeat instead of press-and-hold.
+  community.general.osx_defaults: 
+    domain: 'NSGlobalDomain'
+    key: 'ApplePressAndHoldEnabled'
+    type: bool
+    value: false
+
+- name: Ensure blazingly fast keyboard repeat rate, and make it happen more quickly.
+  community.general.osx_defaults: { domain: 'NSGlobalDomain', key: "{{ item.key }}", type: "{{ item.type }}", value: "{{ item.value }}" }
+  loop:
+    - {key: "InitialKeyRepeat", type: int, value: 20 }
+    - {key: "KeyRepeat", type: int, value: 1 }
+
+- name: Ensure keyboard auto-correct is disabled.
+  community.general.osx_defaults: 
+    domain: 'NSGlobalDomain'
+    key: 'NSAutomaticSpellingCorrectionEnabled'
+    type: bool
+    value: false

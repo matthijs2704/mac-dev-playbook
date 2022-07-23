@@ -1,0 +1,16 @@
+---
+
+- { import_tasks: activity-monitor.yml, tags: "macos-defaults-activity-monitor" }
+- { import_tasks: control-center.yml, tags: "macos-defaults-genecontrol-centerral" }
+- { import_tasks: dock.yml, tags: "macos-defaults-dock" }
+- { import_tasks: finder.yml, tags: "macos-defaults-finder" }
+- { import_tasks: general.yml, tags: "macos-defaults-general" }
+- { import_tasks: keyboard.yml, tags: "macos-defaults-keyboard" }
+- { import_tasks: mail.yml, tags: "macos-defaults-mail" }
+- { import_tasks: messages.yml, tags: "macos-defaults-messages" }
+- { import_tasks: safari.yml, tags: "macos-defaults-safari" }
+- { import_tasks: screencapture.yml, tags: "macos-defaults-screencapture" }
+- { import_tasks: software-update.yml, tags: "macos-defaults-software-update" }
+- { import_tasks: spotlight.yml, tags: "macos-defaults-spotlight" }
+- { import_tasks: textedit.yml, tags: "macos-defaults-textedit" }
+- { import_tasks: trackpad.yml, tags: "macos-defaults-trackpad" }

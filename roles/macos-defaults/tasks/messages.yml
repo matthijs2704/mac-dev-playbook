@@ -1,0 +1,7 @@
+---
+
+- name: Ensure Messages does not use smart quotes.
+  command: 'defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false'
+
+- name: Ensure Messages does not use continuous spell checking.
+  command: 'defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false'

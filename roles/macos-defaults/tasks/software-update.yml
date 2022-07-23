@@ -1,0 +1,15 @@
+---
+
+- name: Ensure System is updating automatically.
+  community.general.osx_defaults: { domain: '/Library/Preferences/com.apple.SoftwareUpdate.plist', key: "{{ item.key }}", type: "{{ item.type }}", value: "{{ item.value }}" }
+  loop:
+    - {key: "AutomaticallyInstallMacOSUpdates", type: bool, value: true }
+    - {key: "AutomaticCheckEnabled", type: bool, value: true }
+    - {key: "AutomaticDownload", type: bool, value: true }
+    - {key: "CriticalUpdateInstall", type: bool, value: true }
+    - {key: "ConfigDataInstall", type: bool, value: true }
+
+- name: Ensure App Store is updating automatically.
+  community.general.osx_defaults: { domain: '/Library/Preferences/com.apple.commerce.plist', key: "{{ item.key }}", type: "{{ item.type }}", value: "{{ item.value }}" }
+  loop:
+    - {key: "AutoUpdate", type: bool, value: true }

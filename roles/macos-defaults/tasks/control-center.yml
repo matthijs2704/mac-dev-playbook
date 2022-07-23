@@ -1,0 +1,25 @@
+---
+
+- name: Ensure Control Center items are visible (defaults).
+  community.general.osx_defaults: { domain: 'com.apple.controlcenter', key: "{{ item.key }}", type: "{{ item.type }}", value: "{{ item.value }}" }
+  loop:
+    - {key: "NSStatusItem Visible AccessibilityShortcuts", type: bool, value: false }
+    - {key: "NSStatusItem Visible Battery", type: bool, value: true }
+    - {key: "NSStatusItem Visible Bluetooth", type: bool, value: true }
+    - {key: "NSStatusItem Visible Clock", type: bool, value: true }
+    - {key: "NSStatusItem Visible Display", type: bool, value: true }
+    - {key: "NSStatusItem Visible Sound", type: bool, value: true }
+    - {key: "NSStatusItem Visible WiFi", type: bool, value: true }
+    - {key: "NSStatusItem Visible NowPlaying", type: bool, value: true }
+  notify: Restart ControlCenter
+
+- name: Ensure Status Bar items are visible (by host).
+  community.general.osx_defaults: { domain: "{{ ansible_home }}/Library/Preferences/ByHost/com.apple.controlcenter.plist", key: "{{ item.key }}", type: "{{ item.type }}", value: "{{ item.value }}" }
+  loop:
+    - {key: "AccessibilityShortcuts", type: int, value: 24 }
+    - {key: "Battery", type: int, value: 18 }
+    - {key: "Bluetooth", type: int, value: 18 }
+    - {key: "Display", type: int, value: 16 }
+    - {key: "Sound", type: int, value: 18 }
+    - {key: "NowPlaying", type: int, value: 18 }
+  notify: Restart ControlCenter

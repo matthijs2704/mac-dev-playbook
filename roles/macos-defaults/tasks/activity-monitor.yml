@@ -1,0 +1,15 @@
+---
+
+- name: Ensure main window when launching Activity Monitor.
+  community.general.osx_defaults: 
+    domain: 'com.apple.ActivityMonitor'
+    key: OpenMainWindow
+    type: bool
+    value: true
+
+- name: Ensure show all processes in Activity Monitor.
+  community.general.osx_defaults: 
+    domain: 'com.apple.ActivityMonitor'
+    key: ShowCategory
+    type: int
+    value: 0

@@ -1,0 +1,68 @@
+---
+
+- name: Ensure save panel is expanded by default.
+  community.general.osx_defaults: 
+    domain: 'NSGlobalDomain'
+    key: NSNavPanelExpandedStateForSaveMode
+    type: bool
+    value: true
+
+- name: Ensure print panel is expanded by default.
+  community.general.osx_defaults: 
+    domain: 'NSGlobalDomain'
+    key: PMPrintingExpandedStateForPrint
+    type: bool
+    value: true
+
+- name: Ensure save to disk (not iCloud) by default.
+  community.general.osx_defaults: 
+    domain: 'NSGlobalDomain'
+    key: NSDocumentSaveNewDocumentsToCloud
+    type: bool
+    value: false
+
+- name: Ensure printer app quits automatically after jobs complete.
+  community.general.osx_defaults: 
+    domain: 'com.apple.print.PrintingPrefs'
+    key: 'Quit When Finished'
+    type: bool
+    value: true
+
+- name: Ensure restart automatically if computer freezes.
+  command: 'systemsetup -setrestartfreeze on'
+  become: true
+  ignore_errors: true
+  changed_when: false
+
+- name: Ensure printer app quits automatically after jobs complete.
+  community.general.osx_defaults: 
+    domain: 'com.apple.print.PrintingPrefs'
+    key: 'Quit When Finished'
+    type: bool
+    value: true
+
+- name: Ensure auto-capitalization, smart quotes and smart dashes are disabled.
+  community.general.osx_defaults: 
+    domain: 'NSGlobalDomain'
+    key: "{{ item.key }}"
+    type: "{{ item.type }}"
+    value: "{{ item.value }}"
+  loop:
+    - {key: "NSAutomaticCapitalizationEnabled", type: bool, value: false }
+    - {key: "NSAutomaticQuoteSubstitutionEnabled", type: bool, value: false }
+    - {key: "NSAutomaticDashSubstitutionEnabled", type: bool, value: false }
+
+- name: Ensure window tinting is disabled.
+  community.general.osx_defaults: 
+    domain: 'NSGlobalDomain'
+    key: AppleReduceDesktopTinting
+    type: int
+    value: 1
+
+- name: Ensure Photos is not opening automatically when device is plugged in.
+  community.general.osx_defaults: 
+    host: 'currentHost'
+    domain: 'com.apple.ImageCapture'
+    key: disableHotPlug
+    type: bool
+    value: true

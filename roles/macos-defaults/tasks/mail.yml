@@ -1,0 +1,14 @@
+---
+- name: Ensure copy email address only in Mail.
+  community.general.osx_defaults: 
+    domain: 'com.apple.mail'
+    key: AddressesIncludeNameOnPasteboard
+    type: bool
+    value: false
+
+- name: Ensure disabled inline attachments in Mail.
+  community.general.osx_defaults: 
+    domain: 'com.apple.mail'
+    key: DisableInlineAttachmentViewing
+    type: bool
+    value: true
