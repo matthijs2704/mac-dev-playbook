@@ -5,7 +5,7 @@
     domain: 'com.apple.dock'
     key: 'tilesize'
     type: int
-    value: 50
+    value: 58
   notify: Restart Dock
 
 - name: Ensure Mission Control animation is sped up.
@@ -30,4 +30,12 @@
     key: autohide
     type: bool
     value: true
+  notify: Restart Dock
+
+- name: Ensure Dock is appearing instantly.
+  community.general.osx_defaults: 
+    domain: 'com.apple.dock'
+    key: autohide-delay
+    type: float
+    value: 0.1
   notify: Restart Dock

@@ -1,0 +1,7 @@
+---
+
+- name: Ensure Dock item {{ item.name | default(item) }} exists.
+  ansible.builtin.command: "dockutil --add '{{ item.path }}' --replacing '{{ item.name | default(item) }}' --section apps --no-restart"
+  # changed_when: dockitem_exists.rc > 0 or "in recent-apps" in dockitem_exists.stdout
+  tags: ['dock']
+  notify: Restart Dock

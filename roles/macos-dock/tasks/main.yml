@@ -1,0 +1,57 @@
+---
+- name: Install dockutil.
+  community.general.homebrew:
+    name: dockutil
+    state: present
+  notify:
+    - Clear homebrew cache
+
+- name: "See if Dock item {{ item.name | default(item) }} exists."
+  ansible.builtin.command: "dockutil --find '{{ item.name }}'"
+  register: dockitem_exists
+  failed_when: >
+    "No such file or directory" in dockitem_exists.stdout
+    or "command not found" in dockitem_exists.stdout
+  changed_when: false
+  tags: ['dock']
+
+- name: Remove all from dock
+  command: "dockutil --remove all --no-restart"
+
+# - name: Remove configured Dock items.
+#   ansible.builtin.include_tasks: dock-remove.yml
+#   loop: "{{ dockitems_remove }}"
+
+- name: Ensure required dock items exist.
+  ansible.builtin.include_tasks: dock-add.yml
+  loop: "{{ dockitems_persist }}"
+
+- name: Ensure required dock folder items exist.
+  ansible.builtin.include_tasks: dock-add-folders.yml
+  loop: "{{ dockitems_folders }}"
+
+- name: "Restart Dock"
+  meta: flush_handlers
+
+- name: Pause for 5 seconds to ensure Dock is updated.
+  ansible.builtin.pause:
+    seconds: 5
+
+# - name: Ensure dock items are in correct position.
+#   ansible.builtin.include_tasks: dock-position.yml
+#   when:
+#     - item.pos is defined
+#     - item.pos > 0
+#   loop: "{{ dockitems_persist }}"
+
+- name: Add spacers to dock.
+  ansible.builtin.command: "dockutil --add '' --type small-spacer --before '{{item.before}}' --no-restart"
+  when: item.before is defined
+  loop: "{{ dockitems_spacers }}"
+  notify: Restart Dock
+  
+- name: Add spacers to dock.
+  ansible.builtin.command: "dockutil --add '' --type small-spacer --after '{{item.after}}' --no-restart"
+  when: item.after is defined
+  loop: "{{ dockitems_spacers }}"
+  notify: Restart Dock

@@ -10,6 +10,8 @@ configure_gpg: true
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: true
 dockitems_remove:
+- FaceTime
+- Contacts
 - TV
 - Podcasts
 - 'App Store'
@@ -19,43 +21,66 @@ dockitems_remove:
 - Pages
 - Maps
 - Reminders
+
 dockitems_persist:
-- name: "Launchpad"
-  path: "/System/Applications/Launchpad.app"
-  pos: 1
 - name: "Safari"
-  path: "/System/Applications/Safari.app"
-  pos: 2
+  path: "/Applications/Safari.app"
 - name: "Mail"
   path: "/System/Applications/Mail.app"
-  pos: 3
-- name: "Contacts"
-  path: "/System/Applications/Contacts.app"
-  pos: 4
 - name: "Calendar"
   path: "/System/Applications/Calendar.app"
-  pos: 5
 - name: "Notes"
   path: "/System/Applications/Notes.app"
-  pos: 6
+- name: "System Preferences"
+  path: "/System/Applications/System Preferences.app"
+
+- name: "Photos"
+  path: "/System/Applications/Photos.app"
+- name: "Affinity Photo"
+  path: "/Applications/Affinity Photo.app"
+- name: "Affinity Designer"
+  path: "/Applications/Affinity Designer.app"
+
 - name: "iTerm"
   path: "/Applications/iTerm.app"
-  pos: 7
-- name: "WhatsApp"
-  path: "/Applications/WhatsApp.app"
-  pos: 9
-- name: "Spotify"
-  path: "/Applications/Spotify.app"
-  pos: 12
-- name: "SourceTree"
-  path: "/Applications/SourceTree.app"
-  pos: 14
 - name: "Xcode"
   path: "/Applications/Xcode.app"
-  pos: 15
+- name: "Visual Studio Code"
+  path: "/Applications/Visual Studio Code.app"
 - name: "Paw"
   path: "/Applications/Paw.app"
-  pos: 16
+- name: "SourceTree"
+  path: "/Applications/SourceTree.app"
+
+- name: "Messages"
+  path: "/System/Applications/Messages.app"
+- name: "WhatsApp"
+  path: "/Applications/WhatsApp.app"
+- name: "Spotify"
+  path: "/Applications/Spotify.app"
+
+- name: "Home Assistant"
+  path: "/Applications/Home Assistant.app"
+
+dockitems_folders:
+- name: "Applications"
+  path: "/Applications"
+  view: grid
+  display: folder
+  sort: name
+- name: "Downloads"
+  path: "~/Downloads"
+  view: fan
+  display: stack
+  sort: dateadded
+
+dockitems_spacers:
+  - before: "Safari"
+  - after: "System Preferences"
+  - after: "Affinity Designer"
+  - after: "SourceTree"
+  - after: "Spotify"
+
 
 configure_sudoers: false
 sudoers_custom_config: ''

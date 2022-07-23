@@ -1,0 +1,5 @@
+---
+- name: Ensure Dock item {{ item.name | default(item) }} exists.
+  ansible.builtin.command: "dockutil --add '{{ item.path }}' --replacing '{{ item.name | default(item) }}' --section others --view {{ item.view | default('auto') }} --display {{ item.display | default('folder') }} --sort {{ item.sort | default('datemodified') }} --no-restart"
+  tags: ['dock']
+  notify: Restart Dock
