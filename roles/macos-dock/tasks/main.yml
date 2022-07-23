@@ -40,9 +40,13 @@
   when: item.before is defined
   loop: "{{ dockitems_spacers }}"
   notify: Restart Dock
+  loop_control:
+    pause: 1
   
 - name: Add spacers to dock.
   ansible.builtin.command: "dockutil --add '' --type small-spacer --after '{{item.after}}' --no-restart"
   when: item.after is defined
   loop: "{{ dockitems_spacers }}"
   notify: Restart Dock
+  loop_control:
+    pause: 1
