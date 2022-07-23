@@ -11,6 +11,7 @@
 - { import_tasks: safari.yml, tags: "macos-defaults-safari" }
 - { import_tasks: screencapture.yml, tags: "macos-defaults-screencapture" }
 - { import_tasks: software-update.yml, tags: "macos-defaults-software-update" }
-- { import_tasks: spotlight.yml, tags: "macos-defaults-spotlight" }
+# Disabled due to new security restrictions disallowing file to be written
+# - { import_tasks: spotlight.yml, tags: "macos-defaults-spotlight" }
 - { import_tasks: textedit.yml, tags: "macos-defaults-textedit" }
 - { import_tasks: trackpad.yml, tags: "macos-defaults-trackpad" }
