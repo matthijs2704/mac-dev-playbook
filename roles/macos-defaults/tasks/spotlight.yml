@@ -1,5 +1,7 @@
 ---
 
 - name: Ensure Spotlight indexing is disabled on any volume that gets mounted and has not yet been indexed before.
-  command: 'sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"'
+  command: 'defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"'
   notify: Restart Spotlight
+  become: true
+  changed_when: false
